@@ -8,6 +8,9 @@ CUSTOM_NODES_PATH = os.path.dirname(os.path.abspath(__file__))
 WEIGHTS_PATH = os.path.join(CUSTOM_NODES_PATH, "models")
 HF_REPO_ID = "yisol/IDM-VTON"
 
+if os.path.exists('/stable-diffusion-cache/models/IDM-VTON'):
+    WEIGHTS_PATH = '/stable-diffusion-cache/models/IDM-VTON'
+
 
 def build_pip_install_cmds(args):
     if "python_embeded" in sys.executable or "python_embedded" in sys.executable:
