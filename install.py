@@ -1,11 +1,12 @@
 import sys
-import os.path
+import os
 import subprocess
 from huggingface_hub import snapshot_download
 
+from folder_paths import models_dir
 
 CUSTOM_NODES_PATH = os.path.dirname(os.path.abspath(__file__))
-WEIGHTS_PATH = os.path.join(CUSTOM_NODES_PATH, "models")
+WEIGHTS_PATH = os.path.join(models_dir, "IDM-VTON")
 HF_REPO_ID = "yisol/IDM-VTON"
 
 if os.path.exists('/stable-diffusion-cache/models/IDM-VTON'):
@@ -25,5 +26,9 @@ def ensure_package():
 
 if __name__ == "__main__":
     ensure_package()
+<<<<<<< HEAD
     if not os.path.exists('/stable-diffusion-cache/models/IDM-VTON'):
         snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH)
+=======
+    snapshot_download(repo_id=HF_REPO_ID, local_dir=WEIGHTS_PATH, local_dir_use_symlinks=False)
+>>>>>>> ori/main
